@@ -1,1 +1,30 @@
-<p>calification works!</p>
+<div class="container">
+    <div class="toolbar-wrapper">
+        <mat-toolbar>
+            <span class="toolbar-text"><p>¿Cuán probable es que recomiende el producto o servicio a un familiar o amigo?</p></span>
+        </mat-toolbar>
+    </div>
+    <mat-card *ngIf="score == 0">
+        <p>Califica de 0 a 10, donde 0 poco probable, 10 muy probable</p>
+        <form [formGroup]="form" (ngSubmit)="vote()">
+            <mat-grid-list cols="4" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="espacio">
+                        <mat-select formControlName="Score">
+                            <mat-option *ngFor="let i of options" [value]="i">{{ i }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="5">
+                    <img class="logo" src="./assets/vote.jpg">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Aceptar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+    <mat-card *ngIf="score > 0" class="custom-mat-card">
+        <h3>Ya tenemos registrado tu voto, recuerda que solo puedes votar una vez.</h3>
+    </mat-card>    
+</div>

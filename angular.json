@@ -66,7 +66,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NetPromoterScoreWEB:build:production"
+              "browserTarget": "NetPromoterScoreWEB:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "browserTarget": "NetPromoterScoreWEB:build:development"

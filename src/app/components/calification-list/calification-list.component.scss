@@ -1,0 +1,71 @@
+.pointer {
+  cursor: pointer;
+}
+
+.example-spacer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.example-spacer button {
+  flex-shrink: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+mat-table,
+mat-paginator {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.custom-form-field {
+  width: 100%;
+}
+
+
+/* Dentro del archivo de estilos de tu componente o en tu hoja de estilos global */
+
+.info-container {
+  margin-top: 20px;
+}
+
+.info-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.nps-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nps-category {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(25% - 20px);
+  box-sizing: border-box;
+}
+
+.nps-category h3 {
+  color: #333;
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.nps-category p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.nps-result {
+  background-color: #5277adab;
+  color: #fff;
+}

@@ -1,0 +1,32 @@
+.espacio{
+    width: 80%;
+}
+
+.toolbar-wrapper {
+    text-align: center; 
+    padding: 10px; 
+}
+
+.toolbar-text {
+    display: inline-block;
+    width: 100%; 
+    text-align: center; 
+}
+
+/* Estilos CSS para el mat-card */
+.custom-mat-card {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 8px; /* Radio de borde */
+    padding: 20px; /* Espaciado interno */
+    width: 300px; /* Ancho */
+    margin: 20px auto; /* Margen */
+    text-align: center; /* Alineación de texto */
+  }
+  
+  /* Estilos CSS para el texto dentro del mat-card */
+  .custom-mat-card h3 {
+    color: #333; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    margin: 0; /* Margen */
+  }

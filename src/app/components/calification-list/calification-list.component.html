@@ -1,1 +1,75 @@
-<p>calification-list works!</p>
+<div class="container">
+  <mat-form-field class="custom-form-field">
+    <mat-label>Filtrar</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ejemplo: Julian"
+      #input
+    />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="CC">
+      <th mat-header-cell *matHeaderCellDef>Numero de documento</th>
+      <td mat-cell *matCellDef="let element">{{ element.cc }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef>Correo</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Role">
+      <th mat-header-cell *matHeaderCellDef>Rol</th>
+      <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Calificacion">
+      <th mat-header-cell *matHeaderCellDef>Calificación</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.calification.score }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>
+
+<!-- Dentro del template HTML de tu componente -->
+
+<div class="info-container" *ngIf="listUsers && listUsers.length > 0">
+  <h2>Resumen de NPS</h2>
+  <div class="nps-info">
+    <div class="nps-category">
+      <h3>Promotores (Calificación 9-10)</h3>
+      <p>Cantidad: {{ promoters.length }}</p>
+    </div>
+    <div class="nps-category">
+      <h3>Neutros (Calificación 7-8)</h3>
+      <p>Cantidad: {{ neutrals.length }}</p>
+    </div>
+    <div class="nps-category">
+      <h3>Detractores (Calificación 0-6)</h3>
+      <p>Cantidad: {{ detractors.length }}</p>
+    </div>
+    <div class="nps-category nps-result">
+      <h3>NPS</h3>
+      <p>
+        {{ calculateNPS(promoters.length, neutrals.length, detractors.length) }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<h2 *ngIf="listUsers.length == 0">No hay usuarios por mostrar</h2>
